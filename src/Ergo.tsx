@@ -3,7 +3,7 @@ import './App.css'
 import { Link } from 'react-router-dom';
 
 export default function Ergo() {
-  const [inputLabel, setInputLabel] = useState('Âge : ');
+  const [inputLabel] = useState('Âge : ');
   const [errorText, setError] = useState("");
   const [moduloTested, setModuloTested] = useState(false);
   const [finalized, setFinalized] = useState(false);
