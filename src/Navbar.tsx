@@ -32,7 +32,13 @@ export default function Navbar() {
             <Link to="/credits" onClick={() => setIsOpen(false)}>✨ Credits</Link>
           </li>
           <li>
-            <Link to=":3000" onClick={() => setIsOpen(false)}>👓 Supervision</Link>
+            <a 
+              href="http://localhost:8080" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              onClick={() => setIsOpen(false)}>
+              👓 Supervision
+            </a>
           </li>
         </ul>
       </div>
