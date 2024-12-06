@@ -36,7 +36,6 @@ const Credits: React.FC = () => {
   return (
     <div className="credits-container">
       <h1>🎉 Crédits 🎉</h1>
-      <img src={collineImage} alt="Colline" className="credits-image" />
       <div className="credits-list">
         {Object.entries(images).map(([person, imageUrl]) => (
           <div
