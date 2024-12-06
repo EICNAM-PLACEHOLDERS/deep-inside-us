@@ -1,38 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Credits.css";
-import collineImage from "./assets/colline.png";
 
-interface GitHubUser {
-  login: string;
-  id: number;
-  avatar_url: string;
-}
-
-// Example GitHub usernames fetched
-const users = ["lilierd", "bc-ts", "svitac6", "lege0053", "MrHeddy", "Darkiooss"];
-
-// If you want to keep the sounds logic, ensure you have a mapping for these users.
-// For now, let's just log when we attempt to play a sound.
-const playSound = (person: string) => {
-  console.log(`Attempting to play sound for ${person}`);
+const images = {
+  tristant: "https://via.placeholder.com/150/FF6F61/FFFFFF?text=Tristant",
+  germain: "https://via.placeholder.com/150/6F61FF/FFFFFF?text=Germain",
+  batiste: "https://via.placeholder.com/150/FF61FF/FFFFFF?text=Batiste",
+  marine: "https://via.placeholder.com/150/61FF6F/FFFFFF?text=Marine",
+  lucie: "https://via.placeholder.com/150/FFD761/FFFFFF?text=Lucie",
+  bastien: "https://via.placeholder.com/150/61FFD7/FFFFFF?text=Bastien", // Image de Bastien
 };
 
 const Credits: React.FC = () => {
-  const [githubData, setGithubData] = useState<GitHubUser[]>([]);
-
-  useEffect(() => {
-    // Fetch all users data concurrently
-    Promise.all(
-      users.map((user) =>
-        fetch(`https://api.github.com/users/${user}`).then((response) => response.json())
-      )
-    )
-      .then((data: GitHubUser[]) => {
-        setGithubData(data);
-      })
-      .catch((error) => console.error("Error fetching GitHub users:", error));
-  }, []);
-
   return (
     <div className="credits-container">
       <h1 className="text-white">🎉 Crédits 🎉</h1>
