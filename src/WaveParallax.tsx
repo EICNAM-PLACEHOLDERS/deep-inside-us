@@ -34,7 +34,7 @@ const WaveParallax: React.FC = () => {
       <div className="boat" id="boat" ></div>
       <div className="diver" id="diver" ></div>
       <div className="sec">
-        <h2>Deep Inside Us</h2>
+        <h2>Deep Inside Us 🤿</h2>
         <p>Plonger, c’est redécouvrir à quel point nous faisons partie d’un tout. L’océan est le miroir de notre propre corps. Prenons soin des deux.</p>
       </div>
     </section>
