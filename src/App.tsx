@@ -13,8 +13,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<WaveParallax />} ></Route>
         <Route path="/movai" element={<InputField />}></Route>
-        <Route path="/ergonomie" element={<Ergo />}></Route></Route>  
-        <Route path="/credits" element={<Credits />} ><Route path="/defis" element={<Defis />}></Route>
+        <Route path="/ergonomie" element={<Ergo />}></Route>  
+        <Route path="/credits" element={<Credits />} ></Route>
+        <Route path="/defis" element={<Defis />}></Route>
       </Routes >
     </BrowserRouter >
   );
