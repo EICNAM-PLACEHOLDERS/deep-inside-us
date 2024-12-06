@@ -6,6 +6,7 @@ import Credits from "./Credits";
 import Defis from "./Defis";
 import Ergo from "./Ergo";
 import InputField from "./movai_code/components/InputField";
+import ScrollToTopButton from "./ScrollToTopButton";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/credits" element={<Credits />} />
         <Route path="/defis" element={<Defis />} />
       </Routes>
+      <ScrollToTopButton /> 
     </BrowserRouter>
   );
 }
