@@ -1,6 +1,5 @@
 import React from "react";
 import "./Credits.css";
-import collineImage from "./assets/colline.png";
 
 // Définition des types pour les objets images et sons
 const images: { [key: string]: string } = {
@@ -35,7 +34,8 @@ const playSound = (person: string) => {
 const Credits: React.FC = () => {
   return (
     <div className="credits-container">
-      <h1>🎉 Crédits 🎉</h1>
+      <h1 className="text-white">🎉 Crédits 🎉</h1>
+      <br/>
       <div className="credits-list">
         {Object.entries(images).map(([person, imageUrl]) => (
           <div
@@ -54,12 +54,12 @@ const Credits: React.FC = () => {
               {person === "bastien" && "🚀📚"}
             </h2>
             <p>
-              {person === "tristant" && "Maître de la guitare et fan des canards 🦆."}
-              {person === "germain" && "Amoureux de la musique et des boissons énergisantes ⚡."}
-              {person === "batiste" && "Passionné par la musique et les jeux vidéo 🎮."}
-              {person === "marine" && "Un océan d'idées et de créativité 💖."}
-              {person === "lucie" && "Accro à la guitare et au skate 🛹."}
-              {person === "bastien" && "Passionné par la science et les livres 📚."}
+              {person === "tristant" && "Maître de la guitare et fan des canards 🦆"}
+              {person === "germain" && "Amoureux de la musique et des boissons énergisantes ⚡"}
+              {person === "batiste" && "Passionné par la musique et les jeux vidéo 🎮"}
+              {person === "marine" && "Un océan d'idées et de créativité 💖"}
+              {person === "lucie" && "Accro à la guitare et au skate 🛹"}
+              {person === "bastien" && "Passionné par la science et les livres 📚"}
             </p>
           </div>
         ))}
