@@ -35,16 +35,39 @@ const Credits: React.FC = () => {
 
   return (
     <div className="credits-container">
-      <h1>🎉 Crédits 🎉</h1>
-      <img src={collineImage} alt="Colline" className="credits-image" />
+      <h1 className="text-white">🎉 Crédits 🎉</h1>
+      <br />
       <div className="credits-list">
-        {githubData.map((user) => (
-          <div key={user.id} className="credits-item" onClick={() => playSound(user.login)}>
-            <img src={user.avatar_url} alt={user.login} className="credits-avatar" />
-            <h2>{user.login}</h2>
-            <p>GitHub ID: {user.id}</p>
-          </div>
-        ))}
+        <div className="credits-item" data-name="🎸🦆">
+          <img src={images.tristant} alt="Tristan" className="credits-avatar" />
+          <h2>Tristan 🎸🦆</h2>
+          <p>Maître de la guitare et fan des canards 🦆.</p>
+        </div>
+        <div className="credits-item" data-name="🎵⚡">
+          <img src={images.germain} alt="Germain" className="credits-avatar" />
+          <h2>Germain 🎵⚡</h2>
+          <p>Amoureux de la musique et des boissons énergisantes ⚡.</p>
+        </div>
+        <div className="credits-item" data-name="🎵🎮">
+          <img src={images.batiste} alt="Baptiste" className="credits-avatar" />
+          <h2>Baptiste 🎵🎮</h2>
+          <p>Passionné par la musique et les jeux vidéo 🎮.</p>
+        </div>
+        <div className="credits-item" data-name="🌊💖">
+          <img src={images.marine} alt="Marine" className="credits-avatar" />
+          <h2>Marine 🌊💖</h2>
+          <p>Un océan d'idées et de créativité 💖.</p>
+        </div>
+        <div className="credits-item" data-name="🎸🛹">
+          <img src={images.lucie} alt="Lucie" className="credits-avatar" />
+          <h2>Lucie 🎸🛹</h2>
+          <p>Accro à la guitare et au skate 🛹.</p>
+        </div>
+        <div className="credits-item" data-name="🚀📚">
+          <img src={images.bastien} alt="Bastien" className="credits-avatar" />
+          <h2>Bastien 🚀📚</h2>
+          <p>Passionné par la science et les livres 📚.</p>
+        </div>
       </div>
     </div>
   );
