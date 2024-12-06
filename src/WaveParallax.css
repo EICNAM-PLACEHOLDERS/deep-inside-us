@@ -23,11 +23,8 @@
   background-size: 1000px 100px;
   animation: animate 4s ease-in-out infinite;
   animation-delay: calc(var(--i) * 0.25s);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+
 }
-
-
 
 .wave#wave1 {
   z-index: 1000;

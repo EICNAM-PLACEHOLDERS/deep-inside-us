@@ -33,7 +33,7 @@ const DistanceDisplay: React.FC = () => {
 
       {/* Affichage conditionnel du texte correspondant */}
       {currentText && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-2xl font-bold py-4 px-6 rounded-lg">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xl font-bold py-4 px-6 rounded-lg">
           {currentText}
         </div>
       )}
