@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import WaveParallax from "./WaveParallax";
 import collineImage from './assets/colline.png';
-import { Routes, Route } from 'react-router-dom';
 import {InputField} from './movai_code/components/InputField';
 
 export default function App() {
