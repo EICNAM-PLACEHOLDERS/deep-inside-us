@@ -5,6 +5,7 @@ import WaveParallax from "./WaveParallax";
 import collineImage from './assets/colline.png';
 import InputField from './movai_code/components/InputField';
 import Ergo from "./Ergo";
+import Defis from "./Defis";
 
 export default function App() {
   return (
@@ -12,8 +13,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<WaveParallax />}></Route>
         <Route path="/movai" element={<InputField />}></Route>
-        <Route path="/ergonomie" element={<Ergo />}>
-        </Route>
+        <Route path="/ergonomie" element={<Ergo />}></Route>  
+        <Route path="/defis" element={<Defis />}></Route>
       </Routes>
     </BrowserRouter>
   );
