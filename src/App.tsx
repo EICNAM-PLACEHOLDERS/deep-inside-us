@@ -1,5 +1,5 @@
 import "./App.css";
-import WaveParallax from "./WaveParallx";
+import WaveParallax from "./WaveParallax";
 import collineImage from './assets/colline.png';
 
 export default function App() {
