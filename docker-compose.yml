@@ -52,7 +52,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin  # Mot de passe admin pour Grafana
+      - GF_SECURITY_ADMIN_PASSWORD=test  # Mot de passe admin pour Grafana
     volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning  # Monter la configuration du provisioning
       - grafana_data:/var/lib/grafana  # Volumes persistants pour les données de Grafana
