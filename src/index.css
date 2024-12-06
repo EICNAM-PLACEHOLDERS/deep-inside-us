@@ -70,3 +70,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.ocean-background {
+  background-image: url('./assets/bg.png'); 
+  background-repeat: no-repeat;
+  background-size: 100% 100%; 
+  background-position: top center;
+  padding-bottom: 100px; 
+  height: auto;
+  min-height: 100vh;
+  padding-top: 25%; 
+  z-index: -1;
+}
+
+@media (max-width: 1024px) {
+  .ocean-background {
+    background-size: cover;
+    background-position: center center;
+  }
+}
