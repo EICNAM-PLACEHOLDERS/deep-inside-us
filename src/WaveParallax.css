@@ -63,8 +63,8 @@
 }
 
 .diver {
-  position: absolute;
-  bottom: 1%;
+  position: fixed;
+  bottom: 0;
   left: 0;
   width: 70%;
   height: 20%;

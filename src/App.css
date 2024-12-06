@@ -10,3 +10,12 @@
 .read-the-docs {
   color: #888;
 }
+.ocean-background {
+  position: relative;
+  background-image: url('./assets/colline.png'); 
+  background-repeat: no-repeat;
+  background-position: left bottom; 
+  background-size: 50% auto;
+  padding-bottom: 100px; 
+  z-index: 1;
+}
