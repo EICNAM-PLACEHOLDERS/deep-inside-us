@@ -1,6 +1,8 @@
 import "./App.css";
 import WaveParallax from "./WaveParallx";
 import collineImage from './assets/colline.png';
+import { Routes, Route } from 'react-router-dom';
+import {InputField} from './movai_code/components/InputField';
 
 export default function App() {
   return (
@@ -16,6 +18,12 @@ export default function App() {
         <h2>"L’océan protège la vie, tout comme notre système immunitaire veille sur nous. Chaque élément a son rôle : défense, régulation, protection."</h2>
         <h2>"La pompe thermohaline, c’est le cœur de l’océan. Elle distribue chaleur et nutriments, tout comme notre cœur fait battre la vie en nous. Deux systèmes, un même souffle."</h2> */}
       </div>
+      <Routes>
+        {/* Route pour la page principale (composant App lui-même) */}
+        <Route path="/" element={<></>} />
+        {/* Route pour le composant InputField */}
+        <Route path="/movai_code" element={<InputField />} />
+      </Routes>
     </div>
   );
 }

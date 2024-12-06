@@ -1,4 +1,3 @@
-// src/movai_code/components/Character.tsx
 import React from 'react';
 
 interface CharacterProps {

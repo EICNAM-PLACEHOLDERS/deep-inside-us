@@ -1,8 +1,7 @@
-// src/movai_code/redux/inputSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface InputState {
-  characters: string[];  // Utiliser un tableau pour stocker les caractères
+  characters: string[];
 }
 
 const initialState: InputState = {
@@ -14,7 +13,7 @@ const inputSlice = createSlice({
   initialState,
   reducers: {
     setInput: (state, action: PayloadAction<string>) => {
-      state.characters = action.payload.split('');  // Convertir la chaîne en tableau de caractères
+      state.characters = action.payload.split(''); 
     },
   },
 });

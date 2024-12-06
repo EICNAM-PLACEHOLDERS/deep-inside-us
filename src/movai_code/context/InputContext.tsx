@@ -1,4 +1,3 @@
-// src/movai_code/context/InputContext.tsx
 import React, { createContext, useContext, ReactNode } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setInput } from '../redux/inputSlice';
@@ -17,11 +16,11 @@ const InputContext = createContext<InputContextProps | undefined>(undefined);
 
 export const InputProvider: React.FC<InputProviderProps> = ({ children }) => {
   const dispatch = useDispatch();
-  const input = useSelector((state: RootState) => state.input.characters.join(''));  // On récupère le texte sous forme de chaîne
+  const input = useSelector((state: RootState) => state.input.characters.join('')); 
 
   const setInputValue = (value: string) => {
-    dispatch(setInput(value));  // Mettre à jour l'état Redux
-    localStorage.setItem('input', value);  // Enregistrer dans le localStorage
+    dispatch(setInput(value)); 
+    localStorage.setItem('input', value); 
   };
 
   return (
