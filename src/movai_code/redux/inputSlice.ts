@@ -13,7 +13,7 @@ const inputSlice = createSlice({
   initialState,
   reducers: {
     setInput: (state, action: PayloadAction<string>) => {
-      state.characters = action.payload.split(''); 
+      state.characters = action.payload.split('');
     },
   },
 });
