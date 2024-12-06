@@ -27,7 +27,7 @@ const DistanceDisplay: React.FC = () => {
   return (
     <div>
       {/* Distance affichée dynamiquement */}
-      <div className="fixed top-10 left-10 bg-black bg-opacity-70 text-white py-2 px-4 rounded-lg text-lg" >
+      <div className="fixed top-10 left-10 bg-black bg-opacity-70 text-white py-2 px-4 rounded-lg text-lg"  style={{ zIndex: 1000 }}>
         Profondeur actuelle : {currentDepth}m
       </div>
 
