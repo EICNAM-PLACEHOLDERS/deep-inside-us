@@ -27,13 +27,13 @@ const DistanceDisplay: React.FC = () => {
   return (
     <div>
       {/* Distance affichée dynamiquement */}
-      <div className="fixed top-10 left-10 bg-black bg-opacity-70 text-white py-2 px-4 rounded-lg text-lg">
+      <div className="fixed top-10 left-10 bg-black bg-opacity-70 text-white py-2 px-4 rounded-lg text-lg" >
         Profondeur actuelle : {currentDepth}m
       </div>
 
       {/* Affichage conditionnel du texte correspondant */}
       {currentText && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xl font-bold py-4 px-6 rounded-lg">
+        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xl font-bold py-4 px-6 rounded-lg" style={{ zIndex: 1000 }}>
           {currentText}
         </div>
       )}
