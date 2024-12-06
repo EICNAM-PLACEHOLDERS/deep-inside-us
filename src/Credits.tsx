@@ -2,8 +2,7 @@ import React from "react";
 import "./Credits.css";
 import collineImage from "./assets/colline.png";
 
-// Définition des types pour les objets images et sons
-const images: { [key: string]: string } = {
+const images = {
   tristant: "https://via.placeholder.com/150/FF6F61/FFFFFF?text=Tristant",
   germain: "https://via.placeholder.com/150/6F61FF/FFFFFF?text=Germain",
   batiste: "https://via.placeholder.com/150/FF61FF/FFFFFF?text=Batiste",
@@ -12,58 +11,46 @@ const images: { [key: string]: string } = {
   bastien: "https://via.placeholder.com/150/61FFD7/FFFFFF?text=Bastien",
 };
 
-const sounds: { [key: string]: string } = {
-  tristant: "https://www.myinstants.com/media/sounds/guitar.mp3",
-  germain: "https://www.myinstants.com/media/sounds/energy-drink.mp3",
-  batiste: "https://www.myinstants.com/media/sounds/game-sound.mp3",
-  marine: "https://www.myinstants.com/media/sounds/ocean.mp3",
-  lucie: "https://www.myinstants.com/media/sounds/skate.mp3",
-  bastien: "https://www.myinstants.com/media/sounds/science.mp3",
-};
-
-// Fonction pour jouer le son
-const playSound = (person: string) => {
-  const audio = new Audio(sounds[person]);
-  audio
-    .play()
-    .catch((error) =>
-      console.error(`Error playing sound for ${person}:`, error)
-    );
-};
-
-// Composant Credits
 const Credits: React.FC = () => {
   return (
     <div className="credits-container">
       <h1>🎉 Crédits 🎉</h1>
-      <img src={collineImage} alt="Colline" className="credits-image" />
+      <img
+        src={collineImage}
+        alt="Colline"
+        className="credits-image"
+      />
       <div className="credits-list">
-        {Object.entries(images).map(([person, imageUrl]) => (
-          <div
-            key={person}
-            className="credits-item"
-            onClick={() => playSound(person)}
-          >
-            <img src={imageUrl} alt={person} className="credits-avatar" />
-            <h2>
-              {person.charAt(0).toUpperCase() + person.slice(1)}{" "}
-              {person === "tristant" && "🎸🦆"}
-              {person === "germain" && "🎵⚡"}
-              {person === "batiste" && "🎵🎮"}
-              {person === "marine" && "🌊💖"}
-              {person === "lucie" && "🎸🛹"}
-              {person === "bastien" && "🚀📚"}
-            </h2>
-            <p>
-              {person === "tristant" && "Maître de la guitare et fan des canards 🦆."}
-              {person === "germain" && "Amoureux de la musique et des boissons énergisantes ⚡."}
-              {person === "batiste" && "Passionné par la musique et les jeux vidéo 🎮."}
-              {person === "marine" && "Un océan d'idées et de créativité 💖."}
-              {person === "lucie" && "Accro à la guitare et au skate 🛹."}
-              {person === "bastien" && "Passionné par la science et les livres 📚."}
-            </p>
-          </div>
-        ))}
+        <div className="credits-item" data-name="🎸🦆">
+          <img src={images.tristant} alt="Tristant" className="credits-avatar" />
+          <h2>Tristant 🎸🦆</h2>
+          <p>Maître de la guitare et fan des canards 🦆.</p>
+        </div>
+        <div className="credits-item" data-name="🎵⚡">
+          <img src={images.germain} alt="Germain" className="credits-avatar" />
+          <h2>Germain 🎵⚡</h2>
+          <p>Amoureux de la musique et des boissons énergisantes ⚡.</p>
+        </div>
+        <div className="credits-item" data-name="🎵🎮">
+          <img src={images.batiste} alt="Batiste" className="credits-avatar" />
+          <h2>Batiste 🎵🎮</h2>
+          <p>Passionné par la musique et les jeux vidéo 🎮.</p>
+        </div>
+        <div className="credits-item" data-name="🌊💖">
+          <img src={images.marine} alt="Marine" className="credits-avatar" />
+          <h2>Marine 🌊💖</h2>
+          <p>Un océan d'idées et de créativité 💖.</p>
+        </div>
+        <div className="credits-item" data-name="🎸🛹">
+          <img src={images.lucie} alt="Lucie" className="credits-avatar" />
+          <h2>Lucie 🎸🛹</h2>
+          <p>Accro à la guitare et au skate 🛹.</p>
+        </div>
+        <div className="credits-item" data-name="🚀📚">
+          <img src={images.bastien} alt="Bastien" className="credits-avatar" />
+          <h2>Bastien 🚀📚</h2>
+          <p>Passionné par la science et les livres 📚.</p>
+        </div>
       </div>
     </div>
   );

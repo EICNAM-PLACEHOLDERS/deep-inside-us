@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Navbar from "./Navbar";
 import WaveParallax from "./WaveParallax";
 import Credits from "./Credits";
 import Defis from "./Defis";
@@ -9,13 +10,14 @@ import InputField from "./movai_code/components/InputField";
 export default function App() {
   return (
     <BrowserRouter>
+      <Navbar /> {/* Navbar placée ici */}
       <Routes>
-        <Route path="/" element={<WaveParallax />} ></Route>
-        <Route path="/movai" element={<InputField />}></Route>
-        <Route path="/ergonomie" element={<Ergo />}></Route>  
-        <Route path="/credits" element={<Credits />} ></Route>
-        <Route path="/defis" element={<Defis />}></Route>
-      </Routes >
-    </BrowserRouter >
+        <Route path="/" element={<WaveParallax />} />
+        <Route path="/movai" element={<InputField />} />
+        <Route path="/ergonomie" element={<Ergo />} />
+        <Route path="/credits" element={<Credits />} />
+        <Route path="/defis" element={<Defis />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
