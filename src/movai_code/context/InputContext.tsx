@@ -33,7 +33,7 @@ export const InputProvider: React.FC<InputProviderProps> = ({ children }) => {
 export const useInput = (): InputContextProps => {
   const context = useContext(InputContext);
   if (!context) {
-    throw new Error('useInput must be used within an InputProvider');
+    throw new Error('Oh non un bug.');
   }
   return context;
 };
