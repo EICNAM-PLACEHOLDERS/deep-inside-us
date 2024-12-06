@@ -37,7 +37,7 @@ export default function InputField() {
           value={typedInput}
           onChange={handleChange}
           onBlur={handleValidation}
-          placeholder="Type something..."
+          placeholder="Ceci est un placeholder"
           className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-400 mb-4"
         />
         <button
