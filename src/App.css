@@ -17,5 +17,6 @@
   background-position: left bottom; 
   background-size: 50% auto;
   padding-bottom: 100px; 
-  z-index: 1;
+  padding-top: 25%; 
+  z-index: -1;
 }
