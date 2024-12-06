@@ -1,11 +1,17 @@
 import "./App.css";
 import WaveParallax from "./WaveParallx";
 import collineImage from './assets/colline.png';
+import DistanceDisplay from "./components/DistanceDisplay";
 
 export default function App() {
   return (
     <div>
+      
       <WaveParallax />
+       <div>
+      {/* Composant de suivi de profondeur */}
+      <DistanceDisplay />
+      </div>
       <div className="ocean-background" style={{ backgroundImage: `url(${collineImage})` }}>
         {/* <h2>"La peau de l’océan, c’est sa surface. Elle échange des gaz, régule l’énergie... comme notre peau régule notre température et nous protège du monde extérieur."</h2>
         <h2>"Ces courants marins... ce sont les veines et les artères de l’océan. Comme notre système circulatoire, ils transportent les nutriments et régulent la température de notre planète."</h2>
