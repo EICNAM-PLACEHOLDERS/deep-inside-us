@@ -3,14 +3,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import WaveParallax from "./WaveParallax";
 import Credits from "./Credits";
+import InputField from './movai_code/components/InputField';
+import Ergo from "./Ergo";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<WaveParallax />} />
-        <Route path="/credits" element={<Credits />} />
-      </Routes>
-    </BrowserRouter>
+        <Route path="/" element={<WaveParallax />} ></Route>
+        <Route path="/movai" element={<InputField />}></Route>
+        <Route path="/ergonomie" element={<Ergo />}></Route>
+        <Route path="/credits" element={<Credits />} ></Route>
+      </Routes >
+    </BrowserRouter >
   );
 }
