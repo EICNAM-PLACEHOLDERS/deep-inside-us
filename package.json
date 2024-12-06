@@ -26,7 +26,8 @@
     "react-router-dom": "^7.0.2",
     "react-script": "^2.0.5",
     "react-scroll-parallax": "^3.4.5",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "webpack": "^5.97.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

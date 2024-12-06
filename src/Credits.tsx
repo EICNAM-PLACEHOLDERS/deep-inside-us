@@ -1,51 +1,119 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Credits.css";
+import collineImage from "./assets/colline.png";
 
-const images = {
-  tristant: "https://via.placeholder.com/150/FF6F61/FFFFFF?text=Tristant",
-  germain: "https://via.placeholder.com/150/6F61FF/FFFFFF?text=Germain",
-  batiste: "https://via.placeholder.com/150/FF61FF/FFFFFF?text=Batiste",
-  marine: "https://via.placeholder.com/150/61FF6F/FFFFFF?text=Marine",
-  lucie: "https://via.placeholder.com/150/FFD761/FFFFFF?text=Lucie",
-  bastien: "https://via.placeholder.com/150/61FFD7/FFFFFF?text=Bastien", // Image de Bastien
+interface GitHubUser {
+  login: string;
+  id: number;
+  avatar_url: string;
+}
+
+const users = ["lilierd", "bc-ts", "svitac6", "lege0053", "MrHeddy", "Darkiooss"];
+
+const playSound = (person: string) => {
+  console.log(`Attempting to play sound for ${person}`);
 };
 
 const Credits: React.FC = () => {
+  const [githubData, setGithubData] = useState<GitHubUser[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    console.log(import.meta.env.VITE_GIT_TOKEN)
+    Promise.all(
+      users.map((user) =>
+        fetch(`https://api.github.com/users/${user}`, {
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_GIT_TOKEN}`
+          }
+        })
+          .then((response) => response.json())
+      )
+    )
+      .then((data: GitHubUser[]) => {
+        setGithubData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching GitHub users:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="credits-container">
+        <h1 className="text-white">Loading...</h1>
+      </div>
+    );
+  }
+
+  const mrHeddyUser = githubData.find((data) => data.login === "MrHeddy");
+  const darkioossUser = githubData.find((data) => data.login === "Darkiooss");
+  const bctsUser = githubData.find((data) => data.login === "bc-ts");
+  const legeUser = githubData.find((data) => data.login === "lege0053");
+  const svitacUser = githubData.find((data) => data.login === "Svitac6");
+  const lilierdUser = githubData.find((data) => data.login === "Lilierd");
+
   return (
     <div className="credits-container">
       <h1 className="text-white">🎉 Crédits 🎉</h1>
       <br />
       <div className="credits-list">
-        <div className="credits-item" data-name="🎸🦆">
-          <img src={images.tristant} alt="Tristan" className="credits-avatar" />
-          <h2>Tristan 🎸🦆</h2>
-          <p>Maître de la guitare et fan des canards 🦆.</p>
-        </div>
-        <div className="credits-item" data-name="🎵⚡">
-          <img src={images.germain} alt="Germain" className="credits-avatar" />
-          <h2>Germain 🎵⚡</h2>
-          <p>Amoureux de la musique et des boissons énergisantes ⚡.</p>
-        </div>
-        <div className="credits-item" data-name="🎵🎮">
-          <img src={images.batiste} alt="Baptiste" className="credits-avatar" />
-          <h2>Baptiste 🎵🎮</h2>
-          <p>Passionné par la musique et les jeux vidéo 🎮.</p>
-        </div>
-        <div className="credits-item" data-name="🌊💖">
-          <img src={images.marine} alt="Marine" className="credits-avatar" />
-          <h2>Marine 🌊💖</h2>
-          <p>Un océan d'idées et de créativité 💖.</p>
-        </div>
-        <div className="credits-item" data-name="🎸🛹">
-          <img src={images.lucie} alt="Lucie" className="credits-avatar" />
-          <h2>Lucie 🎸🛹</h2>
-          <p>Accro à la guitare et au skate 🛹.</p>
-        </div>
-        <div className="credits-item" data-name="🚀📚">
-          <img src={images.bastien} alt="Bastien" className="credits-avatar" />
-          <h2>Bastien 🚀📚</h2>
-          <p>Passionné par la science et les livres 📚.</p>
-        </div>
+        {mrHeddyUser && (
+          <div className="credits-item" data-name="🎸🦆" onClick={() => playSound(mrHeddyUser.login)}>
+            <img src={mrHeddyUser?.avatar_url} alt="Tristan" className="credits-avatar" />
+            <a href="https://github.com/MrHeddy" target="_blank" rel="noopener noreferrer">
+              <h2>Tristan 🎸🦆</h2>
+            </a>
+            <p>Maître de la guitare et fan des canards 🦆.</p>
+          </div>
+        )}
+        {darkioossUser && (
+          <div className="credits-item" data-name="🎵⚡" onClick={() => playSound(darkioossUser.login)}>
+            <img src={darkioossUser?.avatar_url} alt="Germain" className="credits-avatar" />
+            <a href="https://github.com/Darkiooss" target="_blank" rel="noopener noreferrer">
+              <h2>Germain 🎵⚡</h2>
+            </a>
+            <p>Amoureux de la musique et des boissons énergisantes ⚡.</p>
+          </div>
+        )}
+        {bctsUser && (
+          <div className="credits-item" data-name="🎵🎮" onClick={() => playSound(bctsUser.login)}>
+            <img src={bctsUser?.avatar_url} alt="Baptiste" className="credits-avatar" />
+            <a href="https://github.com/bc-ts" target="_blank" rel="noopener noreferrer">
+              <h2>Baptiste 🎵🎮</h2>
+            </a>
+            <p>Passionné par la musique et les jeux vidéo 🎮.</p>
+          </div>
+        )}
+        {legeUser && (
+          <div className="credits-item" data-name="🌊💖" onClick={() => playSound(legeUser.login)}>
+            <img src={legeUser?.avatar_url} alt="Marine" className="credits-avatar" />
+            <a href="https://github.com/lege0053" target="_blank" rel="noopener noreferrer">
+              <h2>Marine 🌊💖</h2>
+            </a>
+            <p>Un océan d'idées et de créativité 💖.</p>
+          </div>
+        )}
+        {svitacUser && (
+          <div className="credits-item" data-name="🎸🛹" onClick={() => playSound(svitacUser.login)}>
+            <img src={svitacUser?.avatar_url} alt="Lucie" className="credits-avatar" />
+            <a href="https://github.com/svitac6" target="_blank" rel="noopener noreferrer">
+              <h2>Lucie 🎸🛹</h2>
+            </a>
+            <p>Accro à la guitare et au skate 🛹.</p>
+          </div>
+        )}
+        {lilierdUser && (
+          <div className="credits-item" data-name="🚀📚" onClick={() => playSound(lilierdUser.login)}>
+            <img src={lilierdUser?.avatar_url} alt="Bastien" className="credits-avatar" />
+            <a href="https://github.com/lilierd" target="_blank" rel="noopener noreferrer">
+              <h2>Bastien 🚀📚</h2>
+            </a>
+            <p>Passionné par la science et les livres 📚.</p>
+          </div>
+        )}
       </div>
     </div>
   );
