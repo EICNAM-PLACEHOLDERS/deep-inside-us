@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+
+  # NOTRE APPLICATION (DEEP INSIDE US)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "81:80" # Expose le port 80 du conteneur sur le port 81 de l'hôte
+    networks:
+      - monitoring
+
+  # SERVICE NGINX PROMETHEUS EXPORTER
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:latest
+    container_name: nginx_exporter
+    ports:
+      - "9113:9113"
+    command:
+      - "--nginx.scrape-uri=http://app:80/stub_status" # Commande correcte pour spécifier l'URL du stub_status
+    depends_on:
+      - app
+    networks:
+      - monitoring
+
+  # SERVICE PROMETHEUS
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - monitoring
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml # Vérifie la config de Prometheus ici
+
+  # SERVICE GRAFANA :
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin # Mot de passe admin pour Grafana
+
+networks:
+  monitoring:
+    driver: bridge
