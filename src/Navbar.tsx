@@ -20,19 +20,19 @@ export default function Navbar() {
         </div>
         <ul className={`nav-links ${isOpen ? "active" : ""}`}>
           <li>
-            <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+            <Link to="/" onClick={() => setIsOpen(false)}>🏠 Home</Link>
           </li>
           <li>
-            <Link to="/movai" onClick={() => setIsOpen(false)}>Movai</Link>
+            <Link to="/movai" onClick={() => setIsOpen(false)}>🚀 Movai</Link>
           </li>
           <li>
-            <Link to="/ergonomie" onClick={() => setIsOpen(false)}>Ergonomie</Link>
+            <Link to="/ergonomie" onClick={() => setIsOpen(false)}>📐 Ergonomie</Link>
           </li>
           <li>
-            <Link to="/credits" onClick={() => setIsOpen(false)}>Credits</Link>
+            <Link to="/credits" onClick={() => setIsOpen(false)}>✨ Credits</Link>
           </li>
           <li>
-            <Link to="/defis" onClick={() => setIsOpen(false)}>Defis</Link>
+            <Link to=":3000" onClick={() => setIsOpen(false)}>🎯 Supervision</Link>
           </li>
         </ul>
       </div>
