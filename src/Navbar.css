@@ -2,6 +2,7 @@
 .navbar {
     position: fixed;
     top: 0;
+    background-color: transparent;
     width: 100%;
     backdrop-filter: blur(5px);
     z-index: 1000;

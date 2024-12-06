@@ -18,8 +18,8 @@ const Credits: React.FC = () => {
       <br />
       <div className="credits-list">
         <div className="credits-item" data-name="🎸🦆">
-          <img src={images.tristant} alt="Tristant" className="credits-avatar" />
-          <h2>Tristant 🎸🦆</h2>
+          <img src={images.tristant} alt="Tristan" className="credits-avatar" />
+          <h2>Tristan 🎸🦆</h2>
           <p>Maître de la guitare et fan des canards 🦆.</p>
         </div>
         <div className="credits-item" data-name="🎵⚡">
@@ -28,8 +28,8 @@ const Credits: React.FC = () => {
           <p>Amoureux de la musique et des boissons énergisantes ⚡.</p>
         </div>
         <div className="credits-item" data-name="🎵🎮">
-          <img src={images.batiste} alt="Batiste" className="credits-avatar" />
-          <h2>Batiste 🎵🎮</h2>
+          <img src={images.batiste} alt="Baptiste" className="credits-avatar" />
+          <h2>Baptiste 🎵🎮</h2>
           <p>Passionné par la musique et les jeux vidéo 🎮.</p>
         </div>
         <div className="credits-item" data-name="🌊💖">
