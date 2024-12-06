@@ -24,6 +24,15 @@ services:
       - app
     networks:
       - monitoring
+      
+  # SERVICE NODE EXPORTER
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node_exporter
+    ports:
+      - "9100:9100" # Expose le port 9100 pour les métriques Node Exporter
+    networks:
+      - monitoring
 
   # SERVICE PROMETHEUS
   prometheus:
@@ -34,7 +43,7 @@ services:
     networks:
       - monitoring
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml # Vérifie la config de Prometheus ici
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  # Configuration de Prometheus
 
   # SERVICE GRAFANA :
   grafana:
@@ -42,11 +51,21 @@ services:
     container_name: grafana
     ports:
       - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin  # Mot de passe admin pour Grafana
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning  # Monter la configuration du provisioning
+      - grafana_data:/var/lib/grafana  # Volumes persistants pour les données de Grafana
+    depends_on:
+      - prometheus
+    restart: always
     networks:
       - monitoring
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin # Mot de passe admin pour Grafana
 
 networks:
   monitoring:
     driver: bridge
+
+volumes:
+  grafana_data:
+
